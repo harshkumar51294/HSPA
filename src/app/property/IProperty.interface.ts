@@ -3,4 +3,6 @@ export interface IProperty{
   Name : string ;
   Type: string ;
   Price :string;
+  SellRent:Number;
+  Image ? : string;
 }

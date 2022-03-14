@@ -1,18 +1,40 @@
 [{
    "Id" :1,
+   "SellRent":1,
   "Name": "Birla House",
   "Type":"House",
-  "Price":12000
+  "Price":12000,
+  "Image" : "prop-1"
  },
  {"Id":2,
+  "SellRent":1,
  "Name": "Tim House",
  "Type":"House",
- "Price":120000
+ "Price":120000,
+ "Image" : "prop-2"
 },
 {
    "Id":3,
+   "SellRent":2,
   "Name": "Kim House",
   "Type":"House",
-  "Price":120000
+  "Price":120000,
+  "Image" : "prop-3"
+},
+{
+  "Id":4,
+  "SellRent":2,
+ "Name": "sue House",
+ "Type":"House",
+ "Price":120000,
+ "Image" : "prop-1"
+},
+{
+  "Id":5,
+  "SellRent":2,
+ "Name": "tow House",
+ "Type":"House",
+ "Price":120000,
+ "Image" : "prop-1"
 }
 ]

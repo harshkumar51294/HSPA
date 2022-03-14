@@ -24,6 +24,9 @@ const appRoutes :Routes =[
 {
   path : 'property-detail/:id' , component : PropertyDetailComponent
 },
+{
+  path : '**' , component : PropertyListComponent
+}
 
 
 ]
