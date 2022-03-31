@@ -12,7 +12,12 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import {FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-
+import { UserServiceService } from './services/user-service.service';
+import { AlertifyService } from './services/alertify.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
+import {TabsModule} from 'ngx-bootstrap/tabs'
+import {ButtonsModule} from 'ngx-bootstrap/buttons'
 const appRoutes :Routes =[
 {
   path : 'add-property' , component : AddPropertyComponent
@@ -54,9 +59,14 @@ const appRoutes :Routes =[
     BrowserModule,HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule,
+    TabsModule.forRoot(),
+    ButtonsModule.forRoot()
+
   ],
-  providers: [HousingService],
+  providers: [HousingService,UserServiceService,AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

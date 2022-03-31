@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { User } from 'src/app/model/user';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-user-register',
@@ -9,7 +12,11 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class UserRegisterComponent implements OnInit {
 
   registerationForm :FormGroup;
-  constructor(private fb: FormBuilder,) { }
+  user: User ;
+  userSubmitted: boolean;
+  constructor(private fb: FormBuilder ,
+    private userService :UserServiceService,
+    private alertify : AlertifyService) { }
 
   ngOnInit(): void {
     this.createRegisterationForm()
@@ -51,8 +58,31 @@ get confirmPassword(){
 get mobile(){
   return this.registerationForm.get('mobile') as FormControl
 }
+
   onSubmit(){
-console.log(this.registerationForm)
-  }
+    this.userSubmitted = true
+if(this.registerationForm.valid){
+
+  //this.user = Object.assign(this.user,this.registerationForm.value)
+  this.userService.addUser(this.userData())
+  this.registerationForm.reset()
+  this.userSubmitted =false
+  this.alertify.success ('Form Submitted successfully')
+}
+else{
+  this.alertify.error('Please Provide the feild required')
+}
+//localStorage.setItem('Users',JSON.stringify(this.user))
 
 }
+ userData() :User{
+   return this.user ={
+     userName :this.userName.value ,
+     email :this.email.value ,
+     password: this.password.value,
+     mobile :this.mobile.value
+   }
+ }
+
+}
+
